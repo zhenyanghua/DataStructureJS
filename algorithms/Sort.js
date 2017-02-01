@@ -116,8 +116,8 @@ ArrayList.prototype.quickSort = function(data) {
 
 	var left = [],
 		right = [];
-	data.splice(pivotInd, 1);
 	for(var i = 0; i < data.length; i++) {
+		if (i === pivotInd) continue;
 		if (data[i] <= pivotVal) left.push(data[i]);
 		else right.push(data[i]);
 	}
