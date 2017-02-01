@@ -101,11 +101,33 @@ ArrayList.prototype.merge = function(dest, left, right) {
 }
 
 /**
+ * Quick Sort
+ */
+ArrayList.prototype.quickSort = function(data) {
+	if (!data) data = this.array;
+	if (data.length < 2) return data;
+
+	var pivotInd = ~~(data.length / 2);
+	var pivotVal = data[pivotInd];
+
+	var left = [],
+		right = [];
+	data.splice(pivotInd, 1);
+	for(var i = 0; i < data.length; i++) {
+		if (data[i] <= pivotVal) left.push(data[i]);
+		else right.push(data[i]);
+	}
+	return this.array = this.quickSort(left)
+				.concat([pivotVal])
+				.concat(this.quickSort(right));
+}
+
+/**
  * Usage - Creating an unsorted list
  */
 function createUnsortedList() {
 	var list = new ArrayList();
-	list.insert(5, 4, 3, 2, 1);
+	list.insert(2, 5, 3, 4, 3, 2, 1);
 	list.print('Unsorted');
 	printDash();
 	return list;
@@ -159,6 +181,12 @@ list = createUnsortedList();
 list.mergeSort();
 formatPrint(list);
 
-
+/**
+ * Test Quick Sort
+ */
+printTest('Using Quick Sort.');
+list = createUnsortedList();
+list.quickSort();
+formatPrint(list);
 
 
