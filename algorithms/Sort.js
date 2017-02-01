@@ -69,6 +69,36 @@ ArrayList.prototype.insertionSort = function() {
 	}
 }
 
+/**
+ * Merge Sort
+ */
+ArrayList.prototype.mergeSort = function(data) {
+	if (!data) data = this.array;
+	if (data.length < 2) return data;
+
+	var mInd = ~~(data.length / 2);
+	var left = data.slice(0, mInd);
+	var right = data.slice(mInd);
+
+	left = this.mergeSort(left);
+	right = this.mergeSort(right);
+
+	return this.merge(data, left, right);
+}
+
+ArrayList.prototype.merge = function(dest, left, right) {
+	var dInd = 0,
+		lInd = 0,
+		rInd = 0;
+	while(lInd < left.length && rInd < right.length) {
+		if (left[lInd] <= right[rInd]) dest[dInd++] = left[lInd++];
+		else dest[dInd++] = right[rInd++];
+	}
+	while(lInd < left.length) dest[dInd++] = left[lInd++];
+	while(rInd < right.length) dest[dInd++] = right[rInd++];
+
+	return dest;
+}
 
 /**
  * Usage - Creating an unsorted list
@@ -121,7 +151,13 @@ list = createUnsortedList();
 list.insertionSort();
 formatPrint(list);
 
-
+/**
+ * Test Merge Sort
+ */
+printTest('Using Merge Sort.');
+list = createUnsortedList();
+list.mergeSort();
+formatPrint(list);
 
 
 
