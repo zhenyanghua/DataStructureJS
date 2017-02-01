@@ -104,7 +104,11 @@ ArrayList.prototype.merge = function(dest, left, right) {
  * Quick Sort
  */
 ArrayList.prototype.quickSort = function(data) {
-	if (!data) data = this.array;
+	var replaceThisArray = false;
+	if (!data) {
+		data = this.array;
+		replaceThisArray = true;
+	}
 	if (data.length < 2) return data;
 
 	var pivotInd = ~~(data.length / 2);
@@ -117,9 +121,11 @@ ArrayList.prototype.quickSort = function(data) {
 		if (data[i] <= pivotVal) left.push(data[i]);
 		else right.push(data[i]);
 	}
-	return this.array = this.quickSort(left)
+	data = this.quickSort(left)
 				.concat([pivotVal])
 				.concat(this.quickSort(right));
+	if (replaceThisArray) this.array = data;
+	return data;
 }
 
 /**
