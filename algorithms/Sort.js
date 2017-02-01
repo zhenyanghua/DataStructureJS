@@ -41,7 +41,7 @@ ArrayList.prototype.bubbleSort = function() {
 }
 
 /**
- * Test Selection Sort
+ * Selection Sort
  */
 ArrayList.prototype.selectionSort = function() {
 	var minInd;
@@ -53,6 +53,22 @@ ArrayList.prototype.selectionSort = function() {
 		if (minInd !== i) this.swap(i, minInd)
 	}
 }
+
+/**
+ * Insertion Sort
+ */
+ArrayList.prototype.insertionSort = function() {
+	var num, sortedInd;
+	for (var i = 1; i < this.array.length; i++) {
+		num = this.array[i];
+		sortedInd = i - 1;
+		while(sortedInd >= 0 && num < this.array[sortedInd]) {
+			this.swap(sortedInd, sortedInd + 1);
+			sortedInd--;
+		}
+	}
+}
+
 
 /**
  * Usage - Creating an unsorted list
@@ -95,6 +111,14 @@ formatPrint(list);
 printTest('Using Selection Sort.');
 list = createUnsortedList();
 list.selectionSort();
+formatPrint(list);
+
+/**
+ * Test Insertion Sort
+ */
+printTest('Using Insertion Sort.');
+list = createUnsortedList();
+list.insertionSort();
 formatPrint(list);
 
 
