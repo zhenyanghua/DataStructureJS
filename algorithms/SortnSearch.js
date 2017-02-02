@@ -129,6 +129,28 @@ ArrayList.prototype.quickSort = function(data) {
 }
 
 /**
+ * Binary Search
+ */
+ArrayList.prototype.indexOf = function(item, isSorted) {
+	if (!isSorted) return this.array.indexOf(item);
+
+	return this.bSearch(this.array, item);
+}
+
+ArrayList.prototype.bSearch = function(list, item) {
+	var mInd = ~~(list.length / 2),
+		lInd = 0,
+		rInd = list.length - 1;
+	while(lInd <= rInd) {
+		if (item === list[mInd]) return mInd;
+		if (item < list[mInd]) rInd = mInd;
+		else lInd = mInd + 1;
+		mInd = ~~((rInd + lInd) / 2);
+	}
+	return -1;
+}
+
+/**
  * Usage - Creating an unsorted list
  */
 function createUnsortedList() {
@@ -194,5 +216,14 @@ printTest('Using Quick Sort.');
 list = createUnsortedList();
 list.quickSort();
 formatPrint(list);
+
+/**
+ * Test Binary Search
+ */
+printTest('Using Binary Search.');
+list = new ArrayList();
+list.insert(1,2,3,4,5,6);
+console.log(list.toString());
+console.log("find 5, expecting @ 4, actual @ " + list.indexOf(5, true));
 
 
