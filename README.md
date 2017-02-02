@@ -5,11 +5,17 @@ This is a list of implementation and usage of popular data structure with JavaSc
 
 Currently include:
 
++ Stack
 + Queue
   + Priority Queue
   + Circular Queue
-+ linked List
++ Linked List
 
 ## Algorithms
+
 + Sorting
   + Bubble Sort
+  + Selection Sort
+  + Insertion Sort
+  + Merge Sort
+  + Quick Sort
