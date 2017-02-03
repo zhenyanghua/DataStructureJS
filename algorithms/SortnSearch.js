@@ -15,17 +15,10 @@ ArrayList.prototype.toString = function() {
 	return this.array.join();
 }
 
-ArrayList.prototype.print = function(msg) {
-	var prefix = msg ? "*" + msg + "* - " : "";
-	console.log(prefix + this.toString());
-}
-
-
 ArrayList.prototype.swap = function(i, j) {
 	var tmp = this.array[i];
 	this.array[i] = this.array[j];
 	this.array[j] = tmp;
-	console.log('after swap', this.array)
 }
 
 /**
@@ -150,80 +143,4 @@ ArrayList.prototype.bSearch = function(list, item) {
 	return -1;
 }
 
-/**
- * Usage - Creating an unsorted list
- */
-function createUnsortedList() {
-	var list = new ArrayList();
-	list.insert(2, 5, 3, 4, 3, 2, 1);
-	list.print('Unsorted');
-	printDash();
-	return list;
-}
-
-function printDash() {
-	console.log('-----------------------------');
-}
-
-function printTest(msg) {
-	printDash();
-	console.log(msg);
-	printDash();
-}
-
-function formatPrint(list) {
-	printDash();
-	list.print('Sorted');
-	printDash();
-}
-
-/**
- * Test Bubble Sort
- */
-printTest('Using Bubble Sort.');
-var list = createUnsortedList();
-list.bubbleSort();
-formatPrint(list);
-
-/**
- * Test Selection Sort
- */
-printTest('Using Selection Sort.');
-list = createUnsortedList();
-list.selectionSort();
-formatPrint(list);
-
-/**
- * Test Insertion Sort
- */
-printTest('Using Insertion Sort.');
-list = createUnsortedList();
-list.insertionSort();
-formatPrint(list);
-
-/**
- * Test Merge Sort
- */
-printTest('Using Merge Sort.');
-list = createUnsortedList();
-list.mergeSort();
-formatPrint(list);
-
-/**
- * Test Quick Sort
- */
-printTest('Using Quick Sort.');
-list = createUnsortedList();
-list.quickSort();
-formatPrint(list);
-
-/**
- * Test Binary Search
- */
-printTest('Using Binary Search.');
-list = new ArrayList();
-list.insert(1,2,3,4,5,6);
-console.log(list.toString());
-console.log("find 5, expecting @ 4, actual @ " + list.indexOf(5, true));
-
-
+module.exports = ArrayList;
