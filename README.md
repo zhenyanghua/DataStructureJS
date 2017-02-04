@@ -24,3 +24,5 @@ Currently include:
   + Insertion Sort
   + Merge Sort
   + Quick Sort
++ Dynamic Programming
+  + Minimum Coin Change Problem
