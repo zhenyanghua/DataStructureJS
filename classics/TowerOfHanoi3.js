@@ -1,4 +1,4 @@
-import Stack from '../datastructures/Stack';
+import Stack from '../datastructures/Stack.js';
 
 function move(beginStack, endStack, tempStack, diskNumber) {
   // If there is only one disk left, move it to the end stack.
@@ -9,7 +9,7 @@ function move(beginStack, endStack, tempStack, diskNumber) {
     endStack.push(beginStack.pop());
   } else {
     move(beginStack, tempStack, endStack, diskNumber - 1);
-    move(beginStack, endStack, tempStack, diskNumber);
+    move(beginStack, endStack, tempStack, 1);
     move(tempStack, endStack, beginStack, diskNumber - 1);
   }
 }

@@ -2,6 +2,7 @@
   "name": "data_structure_and_algorithms",
   "version": "0.0.1",
   "description": "## Data Structures This is a list of implementation and usage of popular data structure with JavaScript.",
+  "type": "module",
   "main": "index.js",
   "scripts": {
     "test": "jasmine"
