@@ -26,3 +26,7 @@ Currently include:
   + Quick Sort
 + Dynamic Programming
   + Minimum Coin Change Problem
+
+## Classic Problems
++ Foundations
+  + Towers of Hanoi - 3 Towers

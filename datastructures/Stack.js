@@ -1,4 +1,4 @@
-function Stack() {
+export default function Stack() {
   this.items = [];
 }
 
