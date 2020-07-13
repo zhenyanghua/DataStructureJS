@@ -12,12 +12,17 @@ function move(beginStack, endStack, tempStacks, diskNumber) {
   moved++;
 
   if (diskNumber === 1) {
+    console.log(beginStack, tempStacks, endStack);
     endStack.push(beginStack.pop());
-  } else {
-    move(beginStack, tempStacks[tempStacks.length - 1], [...tempStacks.slice(0, tempStacks.length - 1), endStack], diskNumber - (tempStacks.length - 1) - 1);
-    move(beginStack, endStack, tempStacks, 1);
+    console.log('-----');
+  } else if (diskNumber > 1){
+    move(beginStack, tempStacks[tempStacks.length - 1], [endStack, ...tempStacks.slice(0, tempStacks.length - 1)], diskNumber - (tempStacks.length - 1) - 1);
     for (let i = 0; i < tempStacks.length - 1; i++) {
-      endStack.push(tempStacks[tempStacks.length - 2 - i].pop());
+      tempStacks[i].push(beginStack.pop());
+    }
+    move(beginStack, endStack, tempStacks, 1);
+    for (let i = tempStacks.length - 2; i >= 0; i--) {
+      move(tempStacks[i], endStack, [beginStack, ...tempStacks.slice(0, i), ...tempStacks.slice(i + 1)], 1);
     }
     move(tempStacks[tempStacks.length - 1], endStack, [...tempStacks.slice(0, tempStacks.length - 1), beginStack], diskNumber - (tempStacks.length - 1) - 1);
   }
@@ -25,13 +30,11 @@ function move(beginStack, endStack, tempStacks, diskNumber) {
 
 function hanoiN () {
   const stackA = new Stack();
-  for (let i = 1; i <= 7; i++) {
+  for (let i = 1; i <= 4; i++) {
     stackA.push(i);
   }
   const stackC = new Stack();
-  const assistStacks = Array(2).fill(new Stack());
-
-  console.log(stackA, assistStacks, stackC);
+  const assistStacks = Array(3).fill(new Stack());
 
   move(stackA, stackC, assistStacks, stackA.size());
 
