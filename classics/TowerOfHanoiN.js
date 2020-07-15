@@ -1,13 +1,13 @@
 import Stack from '../datastructures/Stack.js';
 
+const towers = 2;
 let moved = 0;
-
 const stackA = new Stack();
 for (let i = 1; i <= 4; i++) {
   stackA.push(i);
 }
 const stackC = new Stack();
-const assistStacks = new Array(2).fill(0).map(() => new Stack());
+const assistStacks = new Array(towers).fill(0).map(() => new Stack());
 
 function move(beginStack, endStack, tempStacks, numberOfDisks) {
   // If there is only one disk left, move it to the end stack.

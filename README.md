@@ -30,3 +30,4 @@ Currently include:
 ## Classic Problems
 + Foundations
   + Towers of Hanoi - 3 Towers
+  + Towers of Hanoi - N Towers
