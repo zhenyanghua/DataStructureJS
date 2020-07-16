@@ -31,3 +31,4 @@ Currently include:
 + Foundations
   + Towers of Hanoi - 3 Towers
   + Towers of Hanoi - N Towers
+  + Unbreakable Encryption - String
