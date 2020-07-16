@@ -13,7 +13,7 @@ function getRandomBytes(length) {
 }
 
 /**
- *
+ * Encrypt the string
  * @param original string
  */
 function encrypt(original) {
@@ -46,4 +46,11 @@ function decrypt([dummyKey, encryptedKey]) {
   return originalBytes.toString('utf8');
 }
 
-console.log(decrypt(encrypt('hello ☃')));
+const original = 'Hello ☃!'
+const [dummyKey, encryptedKey] = encrypt(original);
+const decryptedKey = decrypt([dummyKey, encryptedKey]);
+
+console.log(`Original words:  '${original}'`);
+console.log(`Random secret:   '${dummyKey.toString('utf8')}'`);
+console.log(`Encrypted words: '${encryptedKey.toString('utf8')}'`);
+console.log(`Decrypted words: '${decryptedKey}'`);
