@@ -34,3 +34,5 @@ Currently, include:
   + Unbreakable Encryption - String
   + Unbreakable Encryption - Image
   + Fibonacci - Iteration
++ Search
+  + DNA Search - Binary Search 
