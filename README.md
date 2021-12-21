@@ -8,7 +8,7 @@ npm run test
 ## Data Structures
 This is a list of implementation and usage of popular data structure with JavaScript.
 
-Currently include:
+Currently, include:
 
 + Stack
 + Queue
@@ -30,3 +30,9 @@ Currently include:
 ## Classic Problems
 + Foundations
   + Towers of Hanoi - 3 Towers
+  + Towers of Hanoi - N Towers
+  + Unbreakable Encryption - String
+  + Unbreakable Encryption - Image
+  + Fibonacci - Iteration
++ Search
+  + DNA Search - Binary Search 
