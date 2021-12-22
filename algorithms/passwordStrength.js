@@ -1,3 +1,4 @@
+import { getRandomInt } from './random.js';
 /**
  * Find the sum of all distinct characters count from the substrings.
  * e.g "good" Upper cases chars are substrings
@@ -77,11 +78,6 @@ function solution2(password) {
 }
 
 // Test
-function getRandomInt(min, max) {
-    min = Math.ceil(min);
-    max = Math.floor(max);
-    return Math.floor(Math.random() * (max - min) + min);
-}
 // fixed tests input
 const inputs = [
     'good',
